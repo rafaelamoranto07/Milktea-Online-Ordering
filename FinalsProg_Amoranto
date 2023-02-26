@@ -1,0 +1,197 @@
+using System;
+using System.Collections.Generic;
+
+namespace Amoranto
+{
+class Program
+{
+static void Main(string[] args)
+{
+int Amount;
+int total = 0;
+string flavor;
+int OkinawaM, ChocolateM, TaroM, StrawberryM, CookiesCreamM, MachaM, WintermelonM, CreamcheeseM, SaltedcaramelM, DarkchocoM;
+int totalAmount = 0;
+
+OkinawaM = 80;
+ChocolateM = 80;
+TaroM = 80;
+StrawberryM = 80;
+CookiesCreamM = 80;
+MachaM = 80;
+WintermelonM = 80;
+CreamcheeseM = 80;
+SaltedcaramelM = 80;
+DarkchocoM = 80;
+
+List<String> inputList = new List<String>();
+
+while(true) {
+
+ShowMainMenu();
+string userInput = GetUserInput();
+switch (userInput){
+
+case "1":
+Console.WriteLine("==========Raf's Milkteahan Menu==========");
+Console.WriteLine("Okinawa Milktea: 80");
+Console.WriteLine("Chocolate Milktea: 80");
+Console.WriteLine("Taro Milktea: 80");
+Console.WriteLine("Strawberry Milktea: 80");
+Console.WriteLine("Cookies & Cream Milktea: 80");
+Console.WriteLine("Macha Milktea: 80");
+Console.WriteLine("Wintermelon Milktea: 80");
+Console.WriteLine("Cream Cheese Milktea: 80");
+Console.WriteLine("Salted Caramel Milktea: 80");
+Console.WriteLine("Dark Choco Milktea: 80");
+break;
+
+case "2":
+Console.WriteLine("Choose your order: ");
+String mlk = Console.ReadLine();
+Console.WriteLine("");
+Console.WriteLine("Successfully added your order!");
+Console.WriteLine("");
+inputList.Add(mlk);
+switch (mlk){
+case "Okinawa Milktea":
+totalAmount += OkinawaM;
+break;
+case "Chocolate Milktea":
+totalAmount += ChocolateM;
+break;
+case "Taro Milktea":
+totalAmount += TaroM;
+break;
+case "Strawberry Milktea":
+totalAmount += StrawberryM;
+break;
+case "Cookies & Cream Milktea":
+totalAmount += CookiesCreamM;
+break;
+case "Macha Milktea":
+totalAmount += MachaM;
+break;
+case "Wintermelon Milktea":
+totalAmount += WintermelonM;
+break;
+case "Cream Cheese Milktea":
+totalAmount += CreamcheeseM;
+break;
+case "Salted Caramel Milktea":
+totalAmount += SaltedcaramelM;
+break;
+case "Dark Choco Milktea":
+totalAmount += DarkchocoM;
+break;
+}
+break;
+
+case "3":
+Console.WriteLine("Do you want to remove order?: ");
+String remove = Console.ReadLine();
+Console.WriteLine("");
+Console.WriteLine("Successfully removed your order!");
+Console.WriteLine("");
+inputList.Remove(remove);
+switch (remove){
+case "Okinawa Milktea":
+totalAmount -= OkinawaM;
+break;
+case "Chocolate Milktea":
+totalAmount -= ChocolateM;
+break;
+case "Taro Milktea":
+totalAmount -= TaroM;
+break;
+case "Strawberry Milktea":
+totalAmount -= StrawberryM;
+break;
+case "Cookies & Cream Milktea":
+totalAmount -= CookiesCreamM;
+break;
+case "Macha Milktea":
+totalAmount -= MachaM;
+break;
+case "Wintermelon Milktea":
+totalAmount -= WintermelonM;
+break;
+case "Cream Cheese Milktea":
+totalAmount -= CreamcheeseM;
+break;
+case "Salted Caramel Milktea":
+totalAmount -= SaltedcaramelM;
+break;
+case "Dark Choco Milktea":
+totalAmount -= DarkchocoM;
+break;
+}
+break;
+
+case "4":
+                    Console.WriteLine("Your current orders: ");
+                    foreach (string s in inputList)
+                    {
+                        Console.WriteLine(s);
+                    }
+
+                    Console.WriteLine("");
+                    break;
+
+                case "5":
+Console.WriteLine("What payment method do you want?: ");
+Console.WriteLine("Enter 1 for cod");
+Console.WriteLine("Enter 2 for gcash");
+String pay = Console.ReadLine();
+
+if (pay == "1")
+{
+Console.WriteLine("Thank you for ordering");
+Console.WriteLine("Your total amount is: " + inputList.Count * 80);
+return;
+}
+else if (pay == "2")
+{
+Console.WriteLine("Enter Amount");
+Amount = Convert.ToInt32(Console.ReadLine());
+if (Amount < inputList.Count * 80)
+{
+Console.WriteLine("Insufficient amount");
+return;
+}
+else
+{
+Console.WriteLine("");
+Console.WriteLine("Thank you for ordering!");
+Console.WriteLine("Your change is: " + (Amount - (inputList.Count * 80)));
+return;
+}
+}
+else
+{
+Console.WriteLine("Invalid");
+}
+break;
+
+}
+}
+}
+
+static void ShowMainMenu()
+{
+Console.WriteLine("Menu");
+Console.WriteLine("1 to choose what flavor do you want");
+Console.WriteLine("2 to add some order");
+Console.WriteLine("3 to remove some order");
+Console.WriteLine("4 to show your order");
+Console.WriteLine("5 to choose your payment method");
+Console.WriteLine("");
+}
+static string GetUserInput()
+{
+Console.WriteLine("User Input: ");
+String input = (Console.ReadLine());
+return input;
+}
+}
+}
